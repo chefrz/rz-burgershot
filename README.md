@@ -75,7 +75,7 @@
 	['burgershot_shotnuggets'] 						 = { ['name'] = 'burgershot_shotnuggets', 						['label'] = 'Shot Nuggets', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'burgershot_shotnuggets.png',					['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil, ['description'] = "Shot Nuggets", },
 	['burgershot_shotrings'] 						 = { ['name'] = 'burgershot_shotrings', 						['label'] = 'Shot Rings', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'burgershot_shotrings.png',					['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil, ['description'] = "Shot Rings", },
 	--Coffee Menu
-	['burgershot_bagcoffe'] 						 = { ['name'] = 'burgershot_bagcoffe', 						['label'] = 'Coffee Package', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'burgershot_bagcoffe.png',					['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil, ['description'] = "1x Coffee, 1x Makaron", },
+	['burgershot_bagcoffe'] 						 = { ['name'] = 'burgershot_bagcoffe', 						['label'] = 'Coffee Package', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'burgershot_bagcoffe.png',					['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil, ['description'] = "1x Coffee, 1x Macaroon", },
 	['burgershot_coffee'] 						 = { ['name'] = 'burgershot_coffee', 						['label'] = 'Burger Shot Coffee', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'burgershot_coffee.png',					['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil, ['description'] = "Burger Shot Coffee", },
 	['burgershot_macaroon'] 						 = { ['name'] = 'burgershot_macaroon', 						['label'] = 'Macaroon', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'burgershot_macaroon.png',					['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil, ['description'] = "Macaroon", },
 	--Toys
@@ -123,7 +123,7 @@
 ["burgershot_bigking"] = math.random(40, 50),
 ["burgershot_bleeder"] = math.random(20, 30),
 ["burgershot_goatwrap"] = math.random(50, 60),
-["burgershot_makaron"] = math.random(10, 15),
+["burgershot_macaroon"] = math.random(10, 15),
 ["burgershot_patatob"] = math.random(15, 20),
 ["burgershot_patatos"] = math.random(5, 10),
 ["burgershot_shotnuggets"] = math.random(10, 15),
@@ -174,7 +174,7 @@ QBCore.Functions.CreateUseableItem("burgershot_goatwrap", function(source, item)
     TriggerClientEvent("consumables:client:Eat", source, item.name)
 end)
 
-QBCore.Functions.CreateUseableItem("burgershot_makaron", function(source, item)
+QBCore.Functions.CreateUseableItem("burgershot_macaroon", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
 	if not Player.Functions.RemoveItem(item.name, 1, item.slot) then return end
     TriggerClientEvent("consumables:client:Eat", source, item.name)
