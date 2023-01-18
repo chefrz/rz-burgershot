@@ -274,7 +274,7 @@ end)
 ### Item Images
 - Download the script and open images folder, put it in the `qb-inventory/html/images` directory.
 
-### Map And Cars
+### Map And Car
 - Download the burgershot-map & burgershot-van folder, put it in the your stream file directory.
 ```
 ensure burgershot-map
