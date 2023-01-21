@@ -76,13 +76,13 @@ end)
 QBCore.Functions.CreateCallback('rz:eat:server:get:smallpacket', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.SmallBag) do
-        local burger = Ply.Functions.GetItemByName(v)
-        if burger ~= nil then
-            cb(true)
-        else
-            cb(false)
-        end
+    local item1 = Ply.Functions.GetItemByName(Config.BleederBurger)
+    local item2 = Ply.Functions.GetItemByName(Config.SmallColaItem)
+    local item3 = Ply.Functions.GetItemByName(Config.SmallPotato)
+    if item1 ~= nil and item2 ~= nil and item3 ~= nil then
+        cb(true)
+    else
+        cb(false)
     end
 end)
 
@@ -99,13 +99,13 @@ end)
 QBCore.Functions.CreateCallback('rz:eat:server:get:bigpacket', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.BigBag) do
-        local burger = Ply.Functions.GetItemByName(v)
-        if burger ~= nil then
-            cb(true)
-        else
-            cb(false)
-        end
+    local item1 = Ply.Functions.GetItemByName(Config.BigKingBurger)
+    local item2 = Ply.Functions.GetItemByName(Config.BigColaItem)
+    local item3 = Ply.Functions.GetItemByName(Config.BigPotato)
+    if item1 ~= nil and item2 ~= nil and item3 ~= nil then
+        cb(true)
+    else
+        cb(false)
     end
 end)
 
@@ -122,13 +122,14 @@ end)
 QBCore.Functions.CreateCallback('rz:eat:server:get:goatpacket', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.GoatBag) do
-        local burger = Ply.Functions.GetItemByName(v)
-        if burger ~= nil then
-            cb(true)
-        else
-            cb(false)
-        end
+    local item1 = Ply.Functions.GetItemByName(Config.Wrap)
+    local item2 = Ply.Functions.GetItemByName(Config.Nuggets)
+    local item3 = Ply.Functions.GetItemByName(Config.Rings)
+    local item4 = Ply.Functions.GetItemByName(Config.BigColaItem)
+    if item1 ~= nil and item2 ~= nil and item3 ~= nil and item4 ~= nil then
+        cb(true)
+    else
+        cb(false)
     end
 end)
 
@@ -145,13 +146,12 @@ end)
 QBCore.Functions.CreateCallback('rz:eat:server:get:coffeepacket', function(source, cb)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.CoffeeBag) do
-        local coffee = Ply.Functions.GetItemByName(v)
-        if coffee ~= nil then
-            cb(true)
-        else
-            cb(false)
-        end
+    local item1 = Ply.Functions.GetItemByName(Config.CoffeeItem)
+    local item2 = Ply.Functions.GetItemByName(Config.Macaroon)
+    if item1 ~= nil and item2 ~= nil then
+        cb(true)
+    else
+        cb(false)
     end
 end)
 
@@ -379,6 +379,104 @@ RegisterNetEvent('rz-burgershot:server:macaroon', function()
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.AddItem(Config.Macaroon, 1)
     TriggerClientEvent("inventory:client:ItemBox", QBCore.Shared.Items[Config.Macaroon], "add")
+end)
+
+
+
+----------
+
+QBCore.Functions.CreateCallback('rz:eat:server:get:bigpotato', function(source, cb)
+    local src = source
+    local Ply = QBCore.Functions.GetPlayer(src)
+    local item1 = Ply.Functions.GetItemByName(Config.BigFrozenPotato)
+    local item2 = Ply.Functions.GetItemByName(Config.BigEmptyCardboard)
+    if item1 ~= nil and item2 ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+
+QBCore.Functions.CreateCallback('rz:eat:server:get:smallpotato', function(source, cb)
+    local src = source
+    local Ply = QBCore.Functions.GetPlayer(src)
+    local item1 = Ply.Functions.GetItemByName(Config.SmallFrozenPotato)
+    local item2 = Ply.Functions.GetItemByName(Config.SmallEmptyCardboard)
+    if item1 ~= nil and item2 ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+
+QBCore.Functions.CreateCallback('rz:eat:server:get:rings', function(source, cb)
+    local src = source
+    local Ply = QBCore.Functions.GetPlayer(src)
+    local item1 = Ply.Functions.GetItemByName(Config.FrozenRings)
+    local item2 = Ply.Functions.GetItemByName(Config.SmallEmptyCardboard)
+    if item1 ~= nil and item2 ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+
+QBCore.Functions.CreateCallback('rz:eat:server:get:nuggets', function(source, cb)
+    local src = source
+    local Ply = QBCore.Functions.GetPlayer(src)
+    local item1 = Ply.Functions.GetItemByName(Config.FrozenNuggets)
+    local item2 = Ply.Functions.GetItemByName(Config.BigEmptyCardboard)
+    if item1 ~= nil and item2 ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+
+QBCore.Functions.CreateCallback('rz:eat:server:get:bleederburger', function(source, cb)
+    local src = source
+    local Ply = QBCore.Functions.GetPlayer(src)
+    local item1 = Ply.Functions.GetItemByName(Config.Bread)
+    local item2 = Ply.Functions.GetItemByName(Config.Meat)
+    local item3 = Ply.Functions.GetItemByName(Config.Sauce)
+    local item4 = Ply.Functions.GetItemByName(Config.VegetableCurly)
+    if item1 ~= nil and item2 ~= nil and item3 ~= nil and item4 ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+
+QBCore.Functions.CreateCallback('rz:eat:server:get:bigkingburger', function(source, cb)
+    local src = source
+    local Ply = QBCore.Functions.GetPlayer(src)
+    local item1 = Ply.Functions.GetItemByName(Config.Bread)
+    local item2 = Ply.Functions.GetItemByName(Config.Meat)
+    local item3 = Ply.Functions.GetItemByName(Config.Sauce)
+    local item4 = Ply.Functions.GetItemByName(Config.Cheddar)
+    local item5 = Ply.Functions.GetItemByName(Config.Tomato)
+    local item6 = Ply.Functions.GetItemByName(Config.VegetableCurly)
+    if item1 ~= nil and item2 ~= nil and item3 ~= nil and item4 ~= nil and item5 ~= nil and item6 ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+
+QBCore.Functions.CreateCallback('rz:eat:server:get:wrap', function(source, cb)
+    local src = source
+    local Ply = QBCore.Functions.GetPlayer(src)
+    local item1 = Ply.Functions.GetItemByName(Config.Lavash)
+    local item2 = Ply.Functions.GetItemByName(Config.Meat)
+    local item3 = Ply.Functions.GetItemByName(Config.Sauce)
+    local item4 = Ply.Functions.GetItemByName(Config.Cheddar)
+    local item5 = Ply.Functions.GetItemByName(Config.Tomato)
+    local item6 = Ply.Functions.GetItemByName(Config.VegetableCurly)
+    if item1 ~= nil and item2 ~= nil and item3 ~= nil and item4 ~= nil and item5 ~= nil and item6 ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
 end)
 
 Citizen.CreateThread(function()
