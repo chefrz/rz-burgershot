@@ -14,7 +14,7 @@ AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.GetPlayerData(function(PlayerData)
         PlayerJob = PlayerData.job
         if PlayerData.job.onduty then
-            if PlayerData.job.name == "burgershot" then
+            if PlayerData.job.name == Config.Job then
                 TriggerServerEvent("QBCore:ToggleDuty")
             end
         end
@@ -356,8 +356,8 @@ RegisterNetEvent("rz-burgershot:client:bigpotato")
 AddEventHandler("rz-burgershot:client:bigpotato", function()
     if onDuty then
         if clean then 
-            QBCore.Functions.TriggerCallback('rz-burgershot:itemcheck', function(data)
-                if data then
+            QBCore.Functions.TriggerCallback('rz:eat:server:get:bigpotato', function(HasItems)  
+                if HasItems then
                     QBCore.Functions.Progressbar("bigpotato", Lang:t("label.bigpotato"), Config.ProgressbarTime, false, true, {
                         disableMovement = true,
                         disableCarMovement = true,
@@ -381,7 +381,7 @@ AddEventHandler("rz-burgershot:client:bigpotato", function()
                 else
                     QBCore.Functions.Notify(Lang:t("notify.needıtem"), "error")
                 end
-            end,Config.BigFrozenPotato, Config.BigEmptyCardboard )
+            end)
         else
             QBCore.Functions.Notify(Lang:t("notify.clean"), "error")
         end
@@ -394,8 +394,8 @@ RegisterNetEvent("rz-burgershot:client:smallpotato")
 AddEventHandler("rz-burgershot:client:smallpotato", function()
     if onDuty then
         if clean then 
-            QBCore.Functions.TriggerCallback('rz-burgershot:itemcheck', function(data)
-                if data then
+            QBCore.Functions.TriggerCallback('rz:eat:server:get:smallpotato', function(HasItems)  
+                if HasItems then
                     QBCore.Functions.Progressbar("smallpotato", Lang:t("label.smallpotato"), Config.ProgressbarTime, false, true, {
                         disableMovement = true,
                         disableCarMovement = true,
@@ -419,7 +419,7 @@ AddEventHandler("rz-burgershot:client:smallpotato", function()
                 else
                     QBCore.Functions.Notify(Lang:t("notify.needıtem"), "error")
                 end
-            end, Config.SmallFrozenPotato, Config.SmallEmptyCardboard)
+            end)
         else
             QBCore.Functions.Notify(Lang:t("notify.clean"), "error")
         end
@@ -432,8 +432,8 @@ RegisterNetEvent("rz-burgershot:client:rings")
 AddEventHandler("rz-burgershot:client:rings", function()
     if onDuty then
         if clean then 
-            QBCore.Functions.TriggerCallback('rz-burgershot:itemcheck', function(data)
-                if data then
+            QBCore.Functions.TriggerCallback('rz:eat:server:get:rings', function(HasItems)  
+                if HasItems then
                     QBCore.Functions.Progressbar("rings", Lang:t("label.rings"), Config.ProgressbarTime, false, true, {
                         disableMovement = true,
                         disableCarMovement = true,
@@ -457,7 +457,7 @@ AddEventHandler("rz-burgershot:client:rings", function()
                 else
                     QBCore.Functions.Notify(Lang:t("notify.needıtem"), "error")
                 end
-            end, Config.FrozenRings, Config.SmallEmptyCardboard)
+            end)
         else
             QBCore.Functions.Notify(Lang:t("notify.clean"), "error")
         end
@@ -470,8 +470,8 @@ RegisterNetEvent("rz-burgershot:client:nuggets")
 AddEventHandler("rz-burgershot:client:nuggets", function()
     if onDuty then
         if clean then 
-            QBCore.Functions.TriggerCallback('rz-burgershot:itemcheck', function(data)
-                if data then
+            QBCore.Functions.TriggerCallback('rz:eat:server:get:nuggets', function(HasItems)  
+                if HasItems then
                     QBCore.Functions.Progressbar("nuggets", Lang:t("label.nuggets"), Config.ProgressbarTime, false, true, {
                         disableMovement = true,
                         disableCarMovement = true,
@@ -495,7 +495,7 @@ AddEventHandler("rz-burgershot:client:nuggets", function()
                 else
                     QBCore.Functions.Notify(Lang:t("notify.needıtem"), "error")
                 end
-            end, Config.FrozenNuggets, Config.BigEmptyCardboard)
+            end)
         else
             QBCore.Functions.Notify(Lang:t("notify.clean"), "error")
         end
@@ -546,8 +546,8 @@ RegisterNetEvent("rz-burgershot:client:bleederburger")
 AddEventHandler("rz-burgershot:client:bleederburger", function()
     if onDuty then
         if clean then 
-            QBCore.Functions.TriggerCallback('rz-burgershot:itemcheck', function(data)
-                if data then
+            QBCore.Functions.TriggerCallback('rz:eat:server:get:bleederburger', function(HasItems)  
+                if HasItems then
                     QBCore.Functions.Progressbar("bleederburger", Lang:t("label.bleederburger"), Config.ProgressbarTime, false, true, {
                         disableMovement = true,
                         disableCarMovement = true,
@@ -567,7 +567,7 @@ AddEventHandler("rz-burgershot:client:bleederburger", function()
                 else
                     QBCore.Functions.Notify(Lang:t("notify.needıtem"), "error")
                 end
-            end, Config.Bread,Config.Meat,Config.Sauce,Config.Curly )
+            end)
         else
             QBCore.Functions.Notify(Lang:t("notify.clean"), "error")
         end
@@ -580,8 +580,8 @@ RegisterNetEvent("rz-burgershot:client:bigkingburger")
 AddEventHandler("rz-burgershot:client:bigkingburger", function()
     if onDuty then
         if clean then 
-            QBCore.Functions.TriggerCallback('rz-burgershot:itemcheck', function(data)
-                if data then
+            QBCore.Functions.TriggerCallback('rz:eat:server:get:bigkingburger', function(HasItems)  
+                if HasItems then
                     QBCore.Functions.Progressbar("bigkingburger", Lang:t("label.bigkingburger"), Config.ProgressbarTime, false, true, {
                         disableMovement = true,
                         disableCarMovement = true,
@@ -601,7 +601,7 @@ AddEventHandler("rz-burgershot:client:bigkingburger", function()
                 else
                     QBCore.Functions.Notify(Lang:t("notify.needıtem"), "error")
                 end
-            end, Config.Bread,Config.Meat,Config.Sauce,Config.Curly,Config.Tomato,Config.Cheddar) 
+            end) 
         else
             QBCore.Functions.Notify(Lang:t("notify.clean"), "error")
         end
@@ -614,8 +614,8 @@ RegisterNetEvent("rz-burgershot:client:wrap")
 AddEventHandler("rz-burgershot:client:wrap", function()
     if onDuty then
         if clean then 
-            QBCore.Functions.TriggerCallback('rz-burgershot:itemcheck', function(data)
-                if data then
+            QBCore.Functions.TriggerCallback('rz:eat:server:get:wrap', function(HasItems)  
+                if HasItems then
                     QBCore.Functions.Progressbar("wrap", Lang:t("label.wrap"), Config.ProgressbarTime, false, true, {
                         disableMovement = true,
                         disableCarMovement = true,
@@ -635,7 +635,7 @@ AddEventHandler("rz-burgershot:client:wrap", function()
                 else
                     QBCore.Functions.Notify(Lang:t("notify.needıtem"), "error")
                 end
-            end, Config.Lavash,Config.Meat,Config.Sauce,Config.Curly,Config.Tomato,Config.Cheddar) 
+            end) 
         else
             QBCore.Functions.Notify(Lang:t("notify.clean"), "error")
         end
@@ -998,7 +998,7 @@ AddEventHandler("rz-burgershot:client:startdeliverysmall", function()
                 SetEntityCoords(PlayerPed, Config.CarSpawnCoord.x, Config.CarSpawnCoord.y, Config.CarSpawnCoord.z-1.0)
                 TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
                 TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
-                SetVehicleLivery(vehicle, 2)
+                SetVehicleLivery(vehicle, 14)
                 SetVehicleColours(vehicle, 30, 30, 30)
                 delivery = 1
             end, Config.CarSpawnCoord, true)
@@ -1019,7 +1019,7 @@ AddEventHandler("rz-burgershot:client:startdeliverybig", function()
                 SetEntityCoords(PlayerPed, Config.CarSpawnCoord.x, Config.CarSpawnCoord.y, Config.CarSpawnCoord.z-1.0)
                 TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
                 TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
-                SetVehicleLivery(vehicle, 1)
+                SetVehicleLivery(vehicle, 15)
                 SetVehicleColours(vehicle, 62, 62, 62)
                 delivery = 1
             end, Config.CarSpawnCoord, true)
@@ -1066,6 +1066,7 @@ AddEventHandler("rz-burgershot:client:sellingfinish", function()
             NetworkFadeOutEntity(car, true,false)
             QBCore.Functions.DeleteVehicle(car)
             client = false
+            status = false
             delivery = 0
             QBCore.Functions.Notify(Lang:t("notify.finish"), "primary")
         else
@@ -1093,7 +1094,7 @@ function SmallPacketSell()
                 TriggerServerEvent("rz-burgershot:server:smallpacketsell")
                 TriggerEvent("rz-burgershot:client:smallpacketsell")
                 map = true
-                Citizen.Wait(10000)
+                BlipSil()
                 ClearPedTasksImmediately(ped)
             end, function() -- Cancel
                 -- Cancel
@@ -1122,7 +1123,6 @@ function BigPacketSell()
                 TriggerServerEvent("rz-burgershot:server:bigpacketsell")
                 TriggerEvent("rz-burgershot:client:bigpacketsell")
                 map = true
-                Citizen.Wait(10000)
                 ClearPedTasksImmediately(ped)
             end, function() -- Cancel
                 -- Cancel
