@@ -1094,7 +1094,6 @@ function SmallPacketSell()
                 TriggerServerEvent("rz-burgershot:server:smallpacketsell")
                 TriggerEvent("rz-burgershot:client:smallpacketsell")
                 map = true
-                BlipSil()
                 ClearPedTasksImmediately(ped)
             end, function() -- Cancel
                 -- Cancel
