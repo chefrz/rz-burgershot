@@ -1132,9 +1132,3 @@ Citizen.CreateThread(function()
     AddTextComponentString("Burger Shot")
     EndTextCommandSetBlipName(blip)
 end)
-
-RegisterCommand("try", function()
-    client = true
-    onDuty = true
-    status = true
-end)
