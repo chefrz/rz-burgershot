@@ -965,24 +965,22 @@ end
 RegisterNetEvent("rz-burgershot:client:smallpacketsell")
 AddEventHandler("rz-burgershot:client:smallpacketsell", function()
     if onDuty then
-        if client then
-            smallblip = true
-            random = math.random(1,#Config.SmallCoords)
-            QBCore.Functions.Notify(Lang:t("notify.neworder"), "primary")
-            SetNewWaypoint(Config.SmallCoords[random]["x"],Config.SmallCoords[random]["y"])
-            status = true
-            while status do
-                local ped = PlayerPedId()
-                local plycoords = GetEntityCoords(ped)
-                local distance = #(plycoords - vector3(Config.SmallCoords[random]["x"],Config.SmallCoords[random]["y"],Config.SmallCoords[random]["z"])) 
-                Citizen.Wait(1)
-                if distance < 1.0 and client  then
-                    QBCore.Functions.DrawText3D(Config.SmallCoords[random]["x"],Config.SmallCoords[random]["y"],Config.SmallCoords[random]["z"], Lang:t("label.deliver"))
-                    if IsControlJustPressed(1, 38) then
-                        SmallPacketSell()
-                    end
-                end	
-            end
+        smallblip = true
+        random = math.random(1,#Config.SmallCoords)
+        QBCore.Functions.Notify(Lang:t("notify.neworder"), "primary")
+        SetNewWaypoint(Config.SmallCoords[random]["x"],Config.SmallCoords[random]["y"])
+        status = true
+        while status do
+            local ped = PlayerPedId()
+            local plycoords = GetEntityCoords(ped)
+            local distance = #(plycoords - vector3(Config.SmallCoords[random]["x"],Config.SmallCoords[random]["y"],Config.SmallCoords[random]["z"])) 
+            Citizen.Wait(1)
+            if distance < 1.0 and client  then
+                QBCore.Functions.DrawText3D(Config.SmallCoords[random]["x"],Config.SmallCoords[random]["y"],Config.SmallCoords[random]["z"], Lang:t("label.deliver"))
+                if IsControlJustPressed(1, 38) then
+                    SmallPacketSell()
+                end
+            end	
         end
     else
         QBCore.Functions.Notify(Lang:t("notify.duty"), "error")
@@ -991,67 +989,57 @@ end)
 
 RegisterNetEvent("rz-burgershot:client:startdeliverysmall")
 AddEventHandler("rz-burgershot:client:startdeliverysmall", function()
-    if client then 
-        if delivery == 0 then
-            TriggerEvent("rz-burgershot:client:smallpacketsell")
-            QBCore.Functions.SpawnVehicle(Config.Car, function(vehicle)
-                SetEntityCoords(PlayerPed, Config.CarSpawnCoord.x, Config.CarSpawnCoord.y, Config.CarSpawnCoord.z-1.0)
-                TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
-                TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
-                SetVehicleLivery(vehicle, 14)
-                SetVehicleColours(vehicle, 30, 30, 30)
-                delivery = 1
-            end, Config.CarSpawnCoord, true)
-        else
-            QBCore.Functions.Notify(Lang:t("notify.ondelivery"), "error")
-        end
+    if delivery == 0 then
+        TriggerEvent("rz-burgershot:client:smallpacketsell")
+        QBCore.Functions.SpawnVehicle(Config.Car, function(vehicle)
+            SetEntityCoords(PlayerPed, Config.CarSpawnCoord.x, Config.CarSpawnCoord.y, Config.CarSpawnCoord.z-1.0)
+            TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
+            TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
+            SetVehicleLivery(vehicle, 14)
+            SetVehicleColours(vehicle, 30, 30, 30)
+            delivery = 1
+        end, Config.CarSpawnCoord, true)
     else
-        QBCore.Functions.Notify(Lang:t("notify.realy"), "error")
+        QBCore.Functions.Notify(Lang:t("notify.ondelivery"), "error")
     end
 end)
 
 RegisterNetEvent("rz-burgershot:client:startdeliverybig")
 AddEventHandler("rz-burgershot:client:startdeliverybig", function()
-    if client then 
-        if delivery == 0 then
-            TriggerEvent("rz-burgershot:client:bigpacketsell")
-            QBCore.Functions.SpawnVehicle(Config.Car, function(vehicle)
-                SetEntityCoords(PlayerPed, Config.CarSpawnCoord.x, Config.CarSpawnCoord.y, Config.CarSpawnCoord.z-1.0)
-                TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
-                TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
-                SetVehicleLivery(vehicle, 15)
-                SetVehicleColours(vehicle, 62, 62, 62)
-                delivery = 1
-            end, Config.CarSpawnCoord, true)
-        else
-            QBCore.Functions.Notify(Lang:t("notify.ondelivery"), "error")
-        end
+    if delivery == 0 then
+        TriggerEvent("rz-burgershot:client:bigpacketsell")
+        QBCore.Functions.SpawnVehicle(Config.Car, function(vehicle)
+            SetEntityCoords(PlayerPed, Config.CarSpawnCoord.x, Config.CarSpawnCoord.y, Config.CarSpawnCoord.z-1.0)
+            TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
+            TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
+            SetVehicleLivery(vehicle, 15)
+            SetVehicleColours(vehicle, 62, 62, 62)
+            delivery = 1
+        end, Config.CarSpawnCoord, true)
     else
-        QBCore.Functions.Notify(Lang:t("notify.realy"), "error")
+        QBCore.Functions.Notify(Lang:t("notify.ondelivery"), "error")
     end
 end)
 
 RegisterNetEvent("rz-burgershot:client:bigpacketsell")
 AddEventHandler("rz-burgershot:client:bigpacketsell", function()
     if onDuty then
-        if client then
-            random = math.random(1,#Config.BigCoords)
-            QBCore.Functions.Notify(Lang:t("notify.neworder"), "primary")
-            SetNewWaypoint(Config.BigCoords[random]["x"],Config.BigCoords[random]["y"])
-            bigblip = true
-            status = true
-            while status do
-                local ped = PlayerPedId()
-                local plycoords = GetEntityCoords(ped)
-                local distance = #(plycoords - vector3(Config.BigCoords[random]["x"],Config.BigCoords[random]["y"],Config.BigCoords[random]["z"])) 
-                Citizen.Wait(1)
-                if distance < 1.0 and client then
-                    QBCore.Functions.DrawText3D(Config.BigCoords[random]["x"],Config.BigCoords[random]["y"],Config.BigCoords[random]["z"], Lang:t("label.deliver"))
-                    if IsControlJustPressed(1, 38) then
-                        BigPacketSell()
-                    end
-                end	
-            end
+        random = math.random(1,#Config.BigCoords)
+        QBCore.Functions.Notify(Lang:t("notify.neworder"), "primary")
+        SetNewWaypoint(Config.BigCoords[random]["x"],Config.BigCoords[random]["y"])
+        bigblip = true
+        status = true
+        while status do
+            local ped = PlayerPedId()
+            local plycoords = GetEntityCoords(ped)
+            local distance = #(plycoords - vector3(Config.BigCoords[random]["x"],Config.BigCoords[random]["y"],Config.BigCoords[random]["z"])) 
+            Citizen.Wait(1)
+            if distance < 1.0 and client then
+                QBCore.Functions.DrawText3D(Config.BigCoords[random]["x"],Config.BigCoords[random]["y"],Config.BigCoords[random]["z"], Lang:t("label.deliver"))
+                if IsControlJustPressed(1, 38) then
+                    BigPacketSell()
+                end
+            end	
         end
     else
         QBCore.Functions.Notify(Lang:t("notify.duty"), "error")
