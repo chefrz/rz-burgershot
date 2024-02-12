@@ -4,6 +4,9 @@
 - Detailed Burger Shot Job [QBCORE]
 - New QBCore
 
+##
+- Hello, if you want to support me you can tip me. Have a nice day! ➝ https://rzstore.tebex.io/package/6126329
+
 ## Video Showcase
 - https://youtu.be/MHwQo5yg-Kw
 ## Discord
