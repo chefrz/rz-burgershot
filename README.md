@@ -27,7 +27,7 @@
 - Low Resmon
 - Making ice cream
 - Detailed create menus
-- Burger Shot custom car
+- Burgershot custom van and bike
 - Easy editable Config file
 - Easy editable language file
 - All created products can be used
