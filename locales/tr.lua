@@ -1,9 +1,5 @@
 local Translations = {
     label = {
-        ["big"] = "Büyük Paket Üretiyorsun..",
-        ["small"] = "Küçük Paket Üretiyorsun..",
-        ["goat"] = "Goat Paket Üretiyorsun..",
-        ["coffee"] = "Coffee Paket Üretiyorsun..",
         ["duty"] = "Mesai",
         ["tray"] = "Tepsi",
         ["storge"] = "Depo",
@@ -29,7 +25,7 @@ local Translations = {
         ["PackageStation"] = "Paketleme Yap",
         ["MacaroonStation"] = "Makaron Al",
         ["IceCreamStation"] = "Dondurma Yap",
-        ["SellItem"] = "Satış Menüsü",
+        ["SellItem"] = "Araç Menüsü",
         ["Clean"] = "Ellerini Yıka",
         ---
         ["chocolateicecream"] = "Çikolatalı Dondurma Üretiyorsun",
@@ -42,23 +38,10 @@ local Translations = {
         ["unicornicecream"] = "Unicorn Aromalı Dondurma Üretiyorsun",
         ---
         ["packetsell"] = "Sipariş teslim ediliyor",
-        ["deliver"] = "[E] Teslim Et",
+        ["deliver"] = "Teslim Et",
+        ["blip_customer"] = "Müşteri",
     },
-    qbmenu = {
-        ["header"] = "Burger Shot Paketleme Menüsü",
-
-        ["smallcraft"] = "Küçük Menü Paketle",
-        ["smallcrafttxt"] = "Bleeder Burger - Küçük Boy Kola - Küçük Boy Patates",
-
-        ["bigcraft"] = "Büyük Menü Paketle",
-        ["bigcrafttxt"] = "Big King Burger - Büyük Boy Kola - Büyük Boy Patates",
-
-        ["goatcraft"] = "Goat Menü Paketle",
-        ["goatcrafttxt"] = "Goat Wrap - Büyük Boy Kola - Soğan Halkası - Kova Nuggets",
-
-        ["coffecraft"] = "Coffee Menü Paketle",
-        ["coffecrafttxt"] = "Kahve - Makaron",
-        ------------------
+    qbmenu = {        ------------------
         ["frieslistmenu"] = "Kızartma Menüsü",
         ["friestmenu"] = "Kızartma Menüsü",
         ----
@@ -124,14 +107,16 @@ local Translations = {
         ["unicornicecream"] =  "Unicorn Aromalı Dondurma",
         ["strawberryıcecream"] =  "Çilekli Dondurma",
         ---
-        ["packetmenuheader"] =  "SatıŞ Menüsü",
-        ["smallpacketsellheader"] =  "Küçük Boy Paket Sat",
-        ["bigpacketsellheader"] =  "Büyük Boy Paket Sat",
+        ["packetmenuheader"] =  "Araç Menüsü",
+        ["stop_delivery"] =  "Satışı İptal Et!",
+        ["spawn_van"] =  "Van Çıkart",
+        ["spawn_bike"] =  "Motor Çıkart",
+        ["stop_sale"] = "Teslimatı Sonlandır"
     },
     notify = {
         ["success"] = "Paketi Açtın",
         ["toy"] = "Paketin İçinden Oyuncak Buldun",
-        ["needıtem"] = "Üstünde Yeterli Eşya Yok",
+        ["needıtem"] = " Üstünde Yeterli Eşya Yok",
         ["heavy"] = "Fazla Ağırsın!",
         ["notcommand"] = "Bu komutu kullanamazsın",
         ["cancel"] = "Paketleme İptal Edildi",
@@ -141,12 +126,13 @@ local Translations = {
         ["dirt"] = "Ellerin Kirlendi.",
         ["dirt2"] = "Ellerin Temizlendi.",
         ["finish"] = "Satış Sonlandırıldı",
-        ["notfinish"] = "Teslimatı bitirmek için araçta olmalısınız",
         ["notselling"] = "Satışa başlamadın",
         ["neworder"] = "Yeni sipariş adresiniz işaretlendi",
         ["ondelivery"] = "Zaten teslim ediyorsun",
         ["realy"] = "Satışa hazır mısınız?",
         ["deliverynotify"] = "Burger siparişinizden bu kadar kazandınız: $",
+        ["wait_order"] = "Sonraki sipariş adresi için biraz bekle",
+        ["not_package"] = " Eşyasını Paketleyemezsin!",
     }
     
 }
