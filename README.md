@@ -1,4 +1,4 @@
-![image](hhttps://cdn.discordapp.com/attachments/1186357096216801381/1205589739390902272/burgershot.png?ex=65d8ebf0&is=65c676f0&hm=8128f9f5f379bcacaf86d217231059a8aa1734ac0cbd51754da92f2bcb36f97c&)
+![image](https://cdn.discordapp.com/attachments/1186357096216801381/1205589739390902272/burgershot.png?ex=65d8ebf0&is=65c676f0&hm=8128f9f5f379bcacaf86d217231059a8aa1734ac0cbd51754da92f2bcb36f97c&)
 
 # rz-burgershot
 - Detailed Burger Shot Job [QBCORE]
