@@ -1,64 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-QBCore.Functions.CreateUseableItem('burgershot_bagsmall', function(source) 
-	TriggerClientEvent('rz-burgershot:CraftSmallBagItem', source) 
-    TriggerClientEvent('QBCore:Notify', source, Lang:t("notify.success"), "primary", 1500)
-end) 
-
-RegisterNetEvent('rz-burgershot:SmallBagItem', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.SmallBag) do
-        Player.Functions.AddItem(v, 1)
-    end  
-    Player.Functions.RemoveItem(Config.SmallBagItem , 1)  
-end)
-
-QBCore.Functions.CreateUseableItem('burgershot_bagbig', function(source) 
-	TriggerClientEvent('rz-burgershot:CraftBigBagItem', source) 
-    TriggerClientEvent('QBCore:Notify', source, Lang:t("notify.success"), "primary", 1500)
-end)
-
-RegisterNetEvent('rz-burgershot:BigBagItem', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.BigBag) do
-        Player.Functions.AddItem(v, 1)
-    end 
-    Player.Functions.RemoveItem(Config.BigBagItem , 1)
-    
-end)
-
-QBCore.Functions.CreateUseableItem('burgershot_baggoat', function(source) 
-	TriggerClientEvent('rz-burgershot:CraftGoatMenuItem', source) 
-    TriggerClientEvent('QBCore:Notify', source, Lang:t("notify.success"), "primary", 1500)
-end)
-
-RegisterNetEvent('rz-burgershot:GoatMenuItem', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.GoatBag) do
-        Player.Functions.AddItem(v, 1)
-    end 
-    Player.Functions.RemoveItem(Config.GoatBagItem, 1)
-    
-end)
-
-QBCore.Functions.CreateUseableItem('burgershot_bagcoffe', function(source) 
-	TriggerClientEvent('rz-burgershot:CraftCoffeeMenuItem', source) 
-    TriggerClientEvent('QBCore:Notify', source, Lang:t("notify.success"), "primary", 1500)
-end)
-
-RegisterNetEvent('rz-burgershot:CoffeeMenuItem', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.CoffeeBag) do
-        Player.Functions.AddItem(v, 1)
-    end 
-    Player.Functions.RemoveItem(Config.CoffeeBagItem, 1)
-    
-end)
-
 RegisterServerEvent('rz-burgershot:givetoyburgershot')
 AddEventHandler('rz-burgershot:givetoyburgershot', function(key)
     local src = source
@@ -71,98 +12,6 @@ AddEventHandler('rz-burgershot:givetoyburgershot', function(key)
     else
         TriggerClientEvent("QBCore:Notify", src, Lang:t("notify.heavy"), "error")
     end
-end)
-
-QBCore.Functions.CreateCallback('rz:eat:server:get:smallpacket', function(source, cb)
-    local src = source
-    local Ply = QBCore.Functions.GetPlayer(src)
-    local item1 = Ply.Functions.GetItemByName(Config.BleederBurger)
-    local item2 = Ply.Functions.GetItemByName(Config.SmallColaItem)
-    local item3 = Ply.Functions.GetItemByName(Config.SmallPotato)
-    if item1 ~= nil and item2 ~= nil and item3 ~= nil then
-        cb(true)
-    else
-        cb(false)
-    end
-end)
-
-RegisterNetEvent('rz-burgershot:add:smallpacket', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.SmallBag) do
-        Player.Functions.RemoveItem(v)
-    end
-    Player.Functions.AddItem(Config.SmallBagItem, 1)
-    TriggerClientEvent("inventory:client:ItemBox", QBCore.Shared.Items[Config.SmallBagItem], "add")
-end)
-
-QBCore.Functions.CreateCallback('rz:eat:server:get:bigpacket', function(source, cb)
-    local src = source
-    local Ply = QBCore.Functions.GetPlayer(src)
-    local item1 = Ply.Functions.GetItemByName(Config.BigKingBurger)
-    local item2 = Ply.Functions.GetItemByName(Config.BigColaItem)
-    local item3 = Ply.Functions.GetItemByName(Config.BigPotato)
-    if item1 ~= nil and item2 ~= nil and item3 ~= nil then
-        cb(true)
-    else
-        cb(false)
-    end
-end)
-
-RegisterNetEvent('rz-burgershot:add:bigpacket', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.BigBag) do
-        Player.Functions.RemoveItem(v)
-    end
-    Player.Functions.AddItem(Config.BigBagItem, 1)
-    TriggerClientEvent("inventory:client:ItemBox", QBCore.Shared.Items[Config.BigBagItem], "add")
-end)
-
-QBCore.Functions.CreateCallback('rz:eat:server:get:goatpacket', function(source, cb)
-    local src = source
-    local Ply = QBCore.Functions.GetPlayer(src)
-    local item1 = Ply.Functions.GetItemByName(Config.Wrap)
-    local item2 = Ply.Functions.GetItemByName(Config.Nuggets)
-    local item3 = Ply.Functions.GetItemByName(Config.Rings)
-    local item4 = Ply.Functions.GetItemByName(Config.BigColaItem)
-    if item1 ~= nil and item2 ~= nil and item3 ~= nil and item4 ~= nil then
-        cb(true)
-    else
-        cb(false)
-    end
-end)
-
-RegisterNetEvent('rz-burgershot:add:goatpacket', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.GoatBag) do
-        Player.Functions.RemoveItem(v)
-    end
-    Player.Functions.AddItem(Config.GoatBagItem, 1)
-    TriggerClientEvent("inventory:client:ItemBox", QBCore.Shared.Items[Config.GoatBagItem], "add")
-end)
-
-QBCore.Functions.CreateCallback('rz:eat:server:get:coffeepacket', function(source, cb)
-    local src = source
-    local Ply = QBCore.Functions.GetPlayer(src)
-    local item1 = Ply.Functions.GetItemByName(Config.CoffeeItem)
-    local item2 = Ply.Functions.GetItemByName(Config.Macaroon)
-    if item1 ~= nil and item2 ~= nil then
-        cb(true)
-    else
-        cb(false)
-    end
-end)
-
-RegisterNetEvent('rz-burgershot:add:coffeepacket', function()
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs (Config.CoffeeBag) do
-        Player.Functions.RemoveItem(v)
-    end
-    Player.Functions.AddItem(Config.CoffeeBagItem, 1)
-    TriggerClientEvent("inventory:client:ItemBox", QBCore.Shared.Items[Config.CoffeeBagItem], "add")
 end)
 
 QBCore.Functions.CreateCallback('rz-burgershot:itemcheck', function(source, cb, item)
@@ -346,44 +195,12 @@ RegisterNetEvent('rz-burgershot:server:unicornicecream', function()
     TriggerClientEvent("inventory:client:ItemBox", QBCore.Shared.Items[Config.UnicornIceCream], "add")
 end)
 
-RegisterServerEvent('rz-burgershot:server:smallpacketsell')
-AddEventHandler('rz-burgershot:server:smallpacketsell', function()
-    local xPlayer = QBCore.Functions.GetPlayer(source)
-
-    local smallbag = xPlayer.Functions.GetItemByName(Config.SmallBagItem)
-
-    if smallbag ~= nil then
-        xPlayer.Functions.RemoveItem(Config.SmallBagItem, 1)
-        xPlayer.Functions.AddMoney('cash', Config.SmallBagSellPrice)
-		TriggerClientEvent('QBCore:Notify', source, Lang:t("notify.deliverynotify") ..Config.SmallBagSellPrice, "primary", 5000)
-        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[Config.SmallBagItem], "remove", 1)
-	end
-end)
-
-RegisterServerEvent('rz-burgershot:server:bigpacketsell')
-AddEventHandler('rz-burgershot:server:bigpacketsell', function()
-    local xPlayer = QBCore.Functions.GetPlayer(source)
-
-    local bigbag = xPlayer.Functions.GetItemByName(Config.BigBagItem)
-
-    if bigbag ~= nil then
-        xPlayer.Functions.RemoveItem(Config.BigBagItem, 1)
-        xPlayer.Functions.AddMoney('cash', Config.BigBagSellPrice)
-		TriggerClientEvent('QBCore:Notify', source, Lang:t("notify.deliverynotify") ..Config.BigBagSellPrice, "primary", 5000)
-        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[Config.BigBagItem], "remove", 1)
-	end
-end)
-
 RegisterNetEvent('rz-burgershot:server:macaroon', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.AddItem(Config.Macaroon, 1)
     TriggerClientEvent("inventory:client:ItemBox", QBCore.Shared.Items[Config.Macaroon], "add")
 end)
-
-
-
-----------
 
 QBCore.Functions.CreateCallback('rz:eat:server:get:bigpotato', function(source, cb)
     local src = source
@@ -479,9 +296,86 @@ QBCore.Functions.CreateCallback('rz:eat:server:get:wrap', function(source, cb)
     end
 end)
 
+RegisterNetEvent('rz-burgershot:server:sell-box', function()
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local payment = Config.PackageSellPrice
+    local bigbag = Player.Functions.GetItemByName(Config.PackageItem)
+
+    if bigbag ~= nil then
+        Player.Functions.RemoveItem(Config.PackageItem, 1)
+        Player.Functions.AddMoney(Config.MoneyType, payment)
+        TriggerClientEvent('QBCore:Notify', source, Lang:t("notify.deliverynotify") ..payment, "primary", 5000)
+        TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[Config.PackageItem], "remove", 1)
+    end
+end)
+
+RegisterServerEvent('rz-burgershot:server:package')
+AddEventHandler('rz-burgershot:server:package', function()
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local info = {
+        type = "menu",
+        items = {}
+    }
+    local totalWeight = 0
+    for i=1, 5 do
+        local slotItem = Player.Functions.GetItemBySlot(i)
+        if slotItem then
+            local trueItem = false
+            for i=1, #Config.ItemList do
+                if slotItem.name == Config.ItemList[i] then
+                    trueItem = true
+                end
+            end
+            if not trueItem then
+                TriggerClientEvent("QBCore:Notify", src, slotItem.label.. Lang:t("notify.not_package"), "error")
+                return
+            end
+            table.insert(info.items, {
+                amount = slotItem.amount,
+                label = slotItem.label,
+                info = slotItem.info,
+                name = slotItem.name
+            })
+        end
+    end
+
+    for i=1, 5 do
+        local slotItem = Player.Functions.GetItemBySlot(i)
+        if slotItem then
+            Player.Functions.RemoveItem(slotItem.name, slotItem.amount, slotItem.slot)
+        end
+    end
+
+    local packet = Config.PackageItem
+    if job == Config.Job then
+        packet = Config.PackageItem
+    end
+    Player.Functions.AddItem(packet, 1, nil, info)
+    TriggerClientEvent("QBCore:Notify", src, Lang:t("notify.createpacket"), "success")
+end)
+
+QBCore.Functions.CreateUseableItem(Config.PackageItem, function(source, item)
+    openPacket(source, item)
+end)
+
+function openPacket(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local itemData = Player.Functions.GetItemBySlot(item.slot)
+    for itemName, itemData in pairs(itemData.info.items) do
+        TriggerEvent('rz-burgershot:givetoyburgershot')
+        Player.Functions.AddItem(itemData.name, itemData.amount, nil, itemData.info)
+    end
+    Player.Functions.RemoveItem(item.name, 1, item.slot)
+    TriggerClientEvent("QBCore:Notify", src, Lang:t("notify.success"), "success")
+end
+
 Citizen.CreateThread(function()
     local resourceName = "^2 rz-burgershot Started ("..GetCurrentResourceName()..")"
     print("\n^1----------------------------------------------------------------------------------^7")
     print(resourceName)
     print("^1----------------------------------------------------------------------------------^7")
 end)
+
