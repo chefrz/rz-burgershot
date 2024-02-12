@@ -1,9 +1,5 @@
 local Translations = {
     label = {
-        ["big"] = "You Creating Big Package..",
-        ["small"] = "You Creating Small Package..",
-        ["goat"] = "You Creating Goat Package..",
-        ["coffee"] = "You Creating Coffee Package..",
         ["duty"] = "Duty",
         ["tray"] = "Tray",
         ["storge"] = "Storge",
@@ -29,7 +25,7 @@ local Translations = {
         ["PackageStation"] = "Package Station",
         ["MacaroonStation"] = "Macaroon Station",
         ["IceCreamStation"] = "Ice Cream Station",
-        ["SellItem"] = "Selling Station",
+        ["SellItem"] = "Car Station",
         ["Clean"] = "Wash Your Hands",
         -----
         ["chocolateicecream"] = "You're Make Chocolate Ice Cream",
@@ -42,23 +38,10 @@ local Translations = {
         ["unicornicecream"] = "You're Make Unicorn Ice Cream",
         ----
         ["packetsell"] = "Order is being delivered",
-        ["deliver"] = "[E] Deliver",
+        ["deliver"] = "Deliver",
+        ["blip_customer"] = "Customer",
     },
     qbmenu = {
-        ["header"] = "Burger Shot Packing Menu",
-
-        ["smallcraft"] = "Small Menu Packing",
-        ["smallcrafttxt"] = "Bleeder Burger - Small Size Cola - Small Size Patato",
-
-        ["bigcraft"] = "Big Menu Packing",
-        ["bigcrafttxt"] = "Big King Burger - Big Size Cola - Big Size Patato",
-
-        ["goatcraft"] = "Goat Menu Packing",
-        ["goatcrafttxt"] = "Goat Wrap - Big Size Cola - Rings - Nuggets",
-
-        ["coffecraft"] = "Coffee Menu Packing",
-        ["coffecrafttxt"] = "Coffee - Macaroon",
-        ------------------
         ["frieslistmenu"] = "Fries List Menu",
         ["friestmenu"] = "Fries Menu",
         ----
@@ -124,14 +107,16 @@ local Translations = {
         ["unicornicecream"] =  "Unicorn Ice Cream",
         ["strawberryicecream"] =  "Strawberry Ice Cream",
         ---
-        ["packetmenuheader"] =  "Selling Menu",
-        ["smallpacketsellheader"] =  "Small Size Packet Selling",
-        ["bigpacketsellheader"] =  "Big Size Packet Selling",
+        ["packetmenuheader"] =  "Car Menu",
+        ["stop_delivery"] =  "Cancel Sale!",
+        ["spawn_van"] = "Spawn Van",
+        ["spawn_bike"] = "Spawn Bike",
+        ["stop_sale"] = "End Delivery"
     },
     notify = {
         ["success"] = "You Opened the Package",
         ["toy"] = "You Found a Toy Inside the Package",
-        ["needıtem"] = "Required items are missing.",
+        ["needıtem"] = " Required items are missing.",
         ["heavy"] = "You Are Too Heavy!",
         ["notcommand"] = "You cannot use this command",
         ["cancel"] = "Packaging Canceled",
@@ -141,12 +126,13 @@ local Translations = {
         ["dirt"] = "Your Hands Are Dirty.",
         ["dirt2"] = "Your Hands Are Cleaned.",
         ["finish"] = "Sale Is Finish",
-        ["notfinish"] = "You must be in the vehicle to finish the delivery",
         ["notselling"] = "You haven't started selling",
         ["neworder"] = "Your new order address has been marked",
         ["ondelivery"] = "You are already delivering",
         ["realy"] = "Are you ready for sale?",
         ["deliverynotify"] = "that's how much you got from your burger order: $",
+        ["wait_order"] = "Wait some time for next order address",
+        ["not_package"] = "You cannot package the item!",
     }
 
     
