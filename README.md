@@ -10,7 +10,7 @@
 ## Video Showcase
 - https://youtu.be/MHwQo5yg-Kw
 ## Discord
-- https://discord.gg/zertxMj7Y
+- https://discord.gg/3JHgCdUFtG
 
 ## Update
 - NPCs pack sales codes have been edited (it now works with target and a blip appears at the customer location) and rebuilt perfectly 
