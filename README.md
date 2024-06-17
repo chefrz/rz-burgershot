@@ -475,7 +475,7 @@ burgershot_coffeeemptyglass = {
     shouldClose = true,
     combinable = nil,
     description = 'Coffee Empty Glass'
-}
+},
 
 burgershot_frozenmeat = {
     name = 'burgershot_frozenmeat',
